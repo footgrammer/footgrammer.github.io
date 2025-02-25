@@ -1,5 +1,5 @@
 ---
-title: 깃헙 페이지로 개발 블로그 만들기!
+title: 플러터 사전교육 1주차 강의 및 마크다운 공부
 date: 2025-02-25 18:00:00 +09:00
 categories: [Journal, Flutter Course]
 tags: [blog, flutter, markdown]     # TAG names should always be lowercase
