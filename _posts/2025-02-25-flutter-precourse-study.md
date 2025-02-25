@@ -1,3 +1,10 @@
+---
+title: 깃헙 페이지로 개발 블로그 만들기!
+date: 2025-02-25 18:00:00 +09:00
+categories: [Journal, Flutter Course]
+tags: [blog, flutter, markdown]     # TAG names should always be lowercase
+---
+
 #2025년 2월 5일 개발일지!
 ### Flutter 사전교육 2일차
 #### 오늘은 1주차 강의 1-10 강의를 듣고 마크다운을 학습했다.
