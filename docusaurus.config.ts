@@ -80,7 +80,6 @@ const config: Config = {
           label: "Tutorial",
         },
         { to: "/blog", label: "Blog", position: "left" },
-        { to: "/journal", label: "Journal", position: "left" },
         {
           href: "https://github.com/footgrammer",
           label: "GitHub",

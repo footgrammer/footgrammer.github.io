@@ -1,8 +1,8 @@
 ---
-slug: flutter-widget
-title: 플러터에서 화면을 구성하는 법
+slug: flutter-widget
+title: 플러터로 화면 구성하기
 authors: [junseok]
-tags: [flutter, docusaurus, github-pages]
+tags: [journal, flutter]
 date: 2025-03-05T22:00
 ---
 
@@ -15,6 +15,8 @@ Date: March 5, 2025
 오늘은 flutter에서 사용되는 다양한 widget에 대해서 학습을 했다.
 
 `Container` `SizeBox` `Row` `Column` `Expanded` `Stack` 등등
+
+<!-- truncate -->
 
 ## ✍️ 주요 학습 내용
 

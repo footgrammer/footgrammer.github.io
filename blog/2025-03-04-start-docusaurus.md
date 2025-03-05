@@ -2,7 +2,7 @@
 slug: start-docusaurus
 title: The reason why I chose docusaurus for writing blog
 authors: [junseok]
-tags: [blog, docusaurus, github-pages]
+tags: [journal, docusaurus, github-pages]
 date: 2025-03-04T22:00
 ---
 
@@ -14,13 +14,13 @@ date: 2025-03-04T22:00
 
 그래서 알아보니까 크게 3가지의 선택지가 있었다.
 
+<!-- truncate -->
+
 - tistory
 - velog
 - github pages
 
 이렇게 3가지가 있었는데 뭔가 tistory와 velog가 기록하기는 쉽지만 커스터마이징하기가 어렵기도 하고 나중에 광고도 붙이고 싶어서 github pages를 이용하기로 결심을 했다!
-
-<!-- truncate -->
 
 ## 오케이. 그러면 어떻게 github pages로 정적 페이지를 만들지?
 

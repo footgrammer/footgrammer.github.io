@@ -1,4 +1,24 @@
+journal:
+  label: journal
+  permalink: /journal
+  description: journal tag description
+
+blog:
+  label: blog
+  permalink: /blog
+  description: blog tag description
+
 docusaurus:
   label: Docusaurus
   permalink: /docusaurus
   description: Docusaurus tag description
+
+flutter:
+  label: flutter
+  permalink: /flutter
+  description: flutter tag description
+
+github-pages:
+  label: github pages
+  permalink: /github pages
+  description: github pages tag description
