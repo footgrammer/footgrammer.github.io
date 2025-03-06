@@ -2,11 +2,96 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://footgrammer.github.io/blog/</id>
     <title>Footgrammer Blog</title>
-    <updated>2025-03-05T22:00:00.000Z</updated>
+    <updated>2025-03-06T22:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://footgrammer.github.io/blog/"/>
     <subtitle>Footgrammer Blog</subtitle>
     <icon>https://footgrammer.github.io/img/footballlover.png</icon>
+    <entry>
+        <title type="html"><![CDATA[플러터 상태관리]]></title>
+        <id>https://footgrammer.github.io/blog/state-management/</id>
+        <link href="https://footgrammer.github.io/blog/state-management/"/>
+        <updated>2025-03-06T22:00:00.000Z</updated>
+        <summary type="html"><![CDATA[오늘은 플러터 상태관리에 대해서 공부를 했다. vue에서도 state를 통해서 state 내의 값이 바뀌었을 때 바로바로 웹사이트에 뿌려줄 수 있었는데 그것과 개념이 비슷해서 화면에서 특정 값이 바뀌었을 때 그것을 실시간으로 보여주고 또 전체화면을 다시 빌드해서 보여주면 메모리가 많이 사용되기 때문에 바뀌는 부분만 다시 빌드할 수 있도록 GetX라는 Third Party Library를 사용하는 것을 배우게 되었다.]]></summary>
+        <content type="html"><![CDATA[<h1>📚 오늘의 학습 내용</h1>
+<blockquote>
+<p>오늘은 플러터 상태관리에 대해서 공부를 했다. vue에서도 state를 통해서 state 내의 값이 바뀌었을 때 바로바로 웹사이트에 뿌려줄 수 있었는데 그것과 개념이 비슷해서 화면에서 특정 값이 바뀌었을 때 그것을 실시간으로 보여주고 또 전체화면을 다시 빌드해서 보여주면 메모리가 많이 사용되기 때문에 바뀌는 부분만 다시 빌드할 수 있도록 GetX라는 Third Party Library를 사용하는 것을 배우게 되었다.</p>
+</blockquote>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️-주요-학습-내용">✍️ 주요 학습 내용<a href="https://footgrammer.github.io/blog/state-management/#%EF%B8%8F-%EC%A3%BC%EC%9A%94-%ED%95%99%EC%8A%B5-%EB%82%B4%EC%9A%A9" class="hash-link" aria-label="Direct link to ✍️ 주요 학습 내용" title="Direct link to ✍️ 주요 학습 내용">​</a></h2>
+<ul>
+<li>배운 내용<!-- -->
+<ul>
+<li>상태관리에 대해서 배웠는데 기본적으로 화면 내의 어떤 값이 바뀔 때 내부적으로는 바뀐 값을 저장하고 있지만 그 값을 화면에 뿌려주지 않기 때문에 내부적으로는 값이 바뀌어도 화면은 전혀 바뀌지 않는 것을 볼 수 있다.</li>
+<li>그렇기 때문에 앱에게 값이 바뀌었다는 것을 알리고 화면을 다시 띄울 수 있게 하는 게 필요하고 이것이 상태관리인 것 같다.</li>
+<li>처음에 <code>StatefulWidget</code>과 <code>StatelessWidget</code> 을 배우는데 <code>StatelessWidget</code> 은 중간에 값이 바뀌지 않기 때문에 동일한 화면을 보여주면 되는데 <code>StatefulWidget</code> 은 중간의 어떤 값이 바뀌기 때문에 바뀐 값을 화면에 보여주기 위해서 빌드를 다시 하게 된다.</li>
+<li><code>StatefulWidget</code> 의 생애주기
+<img decoding="async" loading="lazy" alt="StatefulWidget Lifecycle" src="https://footgrammer.github.io/assets/images/state_lifecycle-017ef7e2e711c8a2a1d5a4e0ede23aae.png" width="953" height="900" class="img_ev3q"></li>
+<li>이것은 <code>StatefulWidget</code>의 생애주기인데 빌드라는 것을 해야 화면을 다시 띄우게 된다. 그렇기 때문에 변경된 값을 보여주기 위해서는 <code>setState()</code> 혹은 <code>didUpdateWidget()</code> 을 사용해서 빌드를 진행해 줘야 한다.</li>
+<li><code>StatefulWidget</code> 의 한계<!-- -->
+<ul>
+<li><code>flutter</code> 는 위젯 트리라고 해서 위젯 간의 계층 구조가 있는데 가장 하위의 위젯에서 어떤 값을 변경하게 되면 그 변경된 값을 <code>StatefulWidget</code> 에게 까지 전달을 해줘야 되고 그 값을 또 나타내 주기 위해서 그 값을 보여주는 위젯까지 변경된 값을 전달해줘야 하는데 그렇기 때문에 이런 상태 공유가 어렵고 비효율적으로 된다.</li>
+</ul>
+</li>
+<li>따라서 이러한 한계점들을 해결하기 위해서 다양한 써드 파티 라이브러리를 이용하게 되는데 대표적으로 4가지가 있다고 한다.<!-- -->
+<ul>
+<li>Provider</li>
+<li>GetX</li>
+<li>Bloc/Cubit</li>
+<li>Riverpod</li>
+</ul>
+</li>
+<li>하지만 여기서 우리는 <code>GetX</code>를 사용하기로 했고 <code>GetX</code> 를 통해서 상태에 변경이 생기면 흔히 <code>Controller</code> 라고 불리는 중앙 집중 상태에 바로 변경된 값을 알려주고 그 값을 뿌려줘야 하는 위젯에 바로 보낼 수 있어서 간편하게 상태관리를 할 수 있게 되었다.</li>
+</ul>
+</li>
+<li>새로 알게된 개념<!-- -->
+<ul>
+<li>상태관리의 개념</li>
+<li><code>StatefulWidget</code> 의 한계점</li>
+<li><code>GetX</code> 의 존재?</li>
+</ul>
+</li>
+<li>실습한 내용<!-- -->
+<ul>
+<li>단어 장바구니 앱 실습</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-발생한-문제에러">🚨 발생한 문제/에러<a href="https://footgrammer.github.io/blog/state-management/#-%EB%B0%9C%EC%83%9D%ED%95%9C-%EB%AC%B8%EC%A0%9C%EC%97%90%EB%9F%AC" class="hash-link" aria-label="Direct link to 🚨 발생한 문제/에러" title="Direct link to 🚨 발생한 문제/에러">​</a></h2>
+<ul>
+<li>따로 발견한 문제/에러는 없었다.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-코드-스니펫">📝 코드 스니펫<a href="https://footgrammer.github.io/blog/state-management/#-%EC%BD%94%EB%93%9C-%EC%8A%A4%EB%8B%88%ED%8E%AB" class="hash-link" aria-label="Direct link to 📝 코드 스니펫" title="Direct link to 📝 코드 스니펫">​</a></h2>
+<div class="language-dart codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-dart codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">// 오늘 배운 주요 코드</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">import 'package:get/get.dart';</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">class ProductController extends GetxController {}</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-내일-학습할-내용">📚 내일 학습할 내용<a href="https://footgrammer.github.io/blog/state-management/#-%EB%82%B4%EC%9D%BC-%ED%95%99%EC%8A%B5%ED%95%A0-%EB%82%B4%EC%9A%A9" class="hash-link" aria-label="Direct link to 📚 내일 학습할 내용" title="Direct link to 📚 내일 학습할 내용">​</a></h2>
+<ul>
+<li>오늘 밤 중으로 5주차까지 강의를 다 듣고 개인과제를 제출할 예정!</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-오늘의-회고">💭 오늘의 회고<a href="https://footgrammer.github.io/blog/state-management/#-%EC%98%A4%EB%8A%98%EC%9D%98-%ED%9A%8C%EA%B3%A0" class="hash-link" aria-label="Direct link to 💭 오늘의 회고" title="Direct link to 💭 오늘의 회고">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="잘한-점-">잘한 점 👍<a href="https://footgrammer.github.io/blog/state-management/#%EC%9E%98%ED%95%9C-%EC%A0%90-" class="hash-link" aria-label="Direct link to 잘한 점 👍" title="Direct link to 잘한 점 👍">​</a></h3>
+<ul>
+<li>강의를 많이 듣지는 못했지만 그래도 위젯 및 상태관리에 대해서 익숙해지고 깊이 이해해 가는 것 같다.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="개선할-점-">개선할 점 🔨<a href="https://footgrammer.github.io/blog/state-management/#%EA%B0%9C%EC%84%A0%ED%95%A0-%EC%A0%90-" class="hash-link" aria-label="Direct link to 개선할 점 🔨" title="Direct link to 개선할 점 🔨">​</a></h3>
+<ul>
+<li>온라인으로 진행되다 보니 조금 더 시간관리를 잘해야 될 것 같다.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="배운-점-">배운 점 💡<a href="https://footgrammer.github.io/blog/state-management/#%EB%B0%B0%EC%9A%B4-%EC%A0%90-" class="hash-link" aria-label="Direct link to 배운 점 💡" title="Direct link to 배운 점 💡">​</a></h3>
+<ul>
+<li>State Management</li>
+<li><code>StatefulWidget</code>의 한계</li>
+<li>Third Party Library : <code>GetX</code></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️-참고-자료">✏️ 참고 자료<a href="https://footgrammer.github.io/blog/state-management/#%EF%B8%8F-%EC%B0%B8%EA%B3%A0-%EC%9E%90%EB%A3%8C" class="hash-link" aria-label="Direct link to ✏️ 참고 자료" title="Direct link to ✏️ 참고 자료">​</a></h2>
+<ul>
+<li>Flutter 공식 문서: <a href="https://docs.flutter.dev/" target="_blank" rel="noopener noreferrer">https://docs.flutter.dev</a></li>
+</ul>]]></content>
+        <author>
+            <name>Junseok Yang</name>
+            <uri>https://github.com/footgrammer</uri>
+        </author>
+        <category label="journal" term="journal"/>
+        <category label="flutter" term="flutter"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[플러터로 화면 구성하기]]></title>
         <id>https://footgrammer.github.io/blog/flutter-widget/</id>
