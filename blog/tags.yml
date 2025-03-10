@@ -20,5 +20,10 @@ flutter:
 
 github-pages:
   label: github pages
-  permalink: /github pages
-  description: github pages tag description
+  permalink: /github
+  description: github tag description
+
+dart:
+  label: dart pages
+  permalink: /dart
+  description: about dart grammar
