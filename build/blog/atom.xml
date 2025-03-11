@@ -2,11 +2,289 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://footgrammer.github.io/blog/</id>
     <title>Footgrammer Blog</title>
-    <updated>2025-03-10T20:00:00.000Z</updated>
+    <updated>2025-03-11T20:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://footgrammer.github.io/blog/"/>
     <subtitle>Footgrammer Blog</subtitle>
     <icon>https://footgrammer.github.io/img/footballlover.png</icon>
+    <entry>
+        <title type="html"><![CDATA[다트 심화 문법 익히기]]></title>
+        <id>https://footgrammer.github.io/blog/advanced-dart-grammar/</id>
+        <link href="https://footgrammer.github.io/blog/advanced-dart-grammar/"/>
+        <updated>2025-03-11T20:00:00.000Z</updated>
+        <summary type="html"><![CDATA[👨‍💻 오늘의 코딩!]]></summary>
+        <content type="html"><![CDATA[<h1>📚 오늘의 학습 내용</h1>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="오늘의-코딩">👨‍💻&nbsp;오늘의 코딩!<a href="https://footgrammer.github.io/blog/advanced-dart-grammar/#%EC%98%A4%EB%8A%98%EC%9D%98-%EC%BD%94%EB%94%A9" class="hash-link" aria-label="Direct link to 👨‍💻&nbsp;오늘의 코딩!" title="Direct link to 👨‍💻&nbsp;오늘의 코딩!">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="문제">문제<a href="https://footgrammer.github.io/blog/advanced-dart-grammar/#%EB%AC%B8%EC%A0%9C" class="hash-link" aria-label="Direct link to 문제" title="Direct link to 문제">​</a></h3>
+<blockquote>
+<p>정수 배열 <code>nums</code>와 정수 <code>target</code>이 주어질 때, 두 수를 더해서 <code>target</code>이 되는 배열 내 두 숫자의 인덱스를 반환하세요.</p>
+<p>같은 요소를 두 번 사용할 수 없습니다. 답은 반드시 하나만 존재한다고 가정합니다.</p>
+</blockquote>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="풀이">풀이<a href="https://footgrammer.github.io/blog/advanced-dart-grammar/#%ED%92%80%EC%9D%B4" class="hash-link" aria-label="Direct link to 풀이" title="Direct link to 풀이">​</a></h3>
+<div class="language-dart codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-dart codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">List&lt;int&gt; twoSum(List&lt;int&gt; nums, int target){</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">	// 1. 숫자와 인덱스를 저장할 해시맵 생성</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">	Map&lt;int, int&gt; map = {};</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">	// 2. 배열을 순회하면서 필요한 값을 맵에서 찾음</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">	for(int i = 0; i &lt; nums.length ; i++{</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">		int complement = target - nums[i];</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">		// 3. 필요한 값이 맵에 존재하면 정답 반환</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">		if(map.containsKey(complement)){</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">			return [map[complement]!, i];</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">		}</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">		// 4. 현재 숫자와 인덱스를 맵에 추가</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">		map[nums[i]] = i;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">	}</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">}</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="몰랐던-내용">몰랐던 내용<a href="https://footgrammer.github.io/blog/advanced-dart-grammar/#%EB%AA%B0%EB%9E%90%EB%8D%98-%EB%82%B4%EC%9A%A9" class="hash-link" aria-label="Direct link to 몰랐던 내용" title="Direct link to 몰랐던 내용">​</a></h3>
+<ul>
+<li><code>map()</code> 의 개념을 몰라서 저 풀이법을 생각조차 못했다.</li>
+<li>for 문에서 ; 대신 , 를 사용해서 계속해서 오류만 났던…</li>
+<li><code>!</code> 의 의미.<!-- -->
+<ul>
+<li>위에서 !를 사용한 이유는 <code>Map&lt;int, int&gt; map = {};</code> 이렇게 선언이 되어 있기 때문에 반환값이 null이 들어갈 수 없는데 <code>nullable</code> 한 map[complement]가 들어갔기 때문에 그렇다.</li>
+<li>!는 null 값이 허용되어 있는 값을 허용되지 않는 값에 넣으려고 하면 에러가 나기 때문에 그때 ! 를 붙여준다.</li>
+<li>하지만 null이 실제로 들어가 있으면 !를 사용해도 에러가 난다.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p>오늘은 반복문과 컬렉션, 열거형, 함수, 제너릭에 대해서 학습을 했다. 이 개념들이 나에게 있어서는 조금 명확하지 않은 부분이었기 때문에 오늘 학습을 하면서 확실히 개념을 이해할 수 있어서 좋았다.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️-주요-학습-내용">✍️ 주요 학습 내용<a href="https://footgrammer.github.io/blog/advanced-dart-grammar/#%EF%B8%8F-%EC%A3%BC%EC%9A%94-%ED%95%99%EC%8A%B5-%EB%82%B4%EC%9A%A9" class="hash-link" aria-label="Direct link to ✍️ 주요 학습 내용" title="Direct link to ✍️ 주요 학습 내용">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="배운-내용">배운 내용<a href="https://footgrammer.github.io/blog/advanced-dart-grammar/#%EB%B0%B0%EC%9A%B4-%EB%82%B4%EC%9A%A9" class="hash-link" aria-label="Direct link to 배운 내용" title="Direct link to 배운 내용">​</a></h3>
+<ul>
+<li>do - while</li>
+<li>for - in</li>
+<li>컬렉션</li>
+<li>열거형</li>
+<li>함수</li>
+<li>제네릭</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="새로-알게된-개념">새로 알게된 개념<a href="https://footgrammer.github.io/blog/advanced-dart-grammar/#%EC%83%88%EB%A1%9C-%EC%95%8C%EA%B2%8C%EB%90%9C-%EA%B0%9C%EB%85%90" class="hash-link" aria-label="Direct link to 새로 알게된 개념" title="Direct link to 새로 알게된 개념">​</a></h3>
+<details class="details_lb9f alert alert--info details_b_Ee" data-collapsed="true"><summary> 반복문 </summary><div><div class="collapsibleContent_i85q"><div markdown="1"><ul>
+<li>
+<p>do - while : do를 한번 실행하고 while 조건에 충족하면 다시 실행</p>
+</li>
+<li>
+<p><code>for - in</code></p>
+<div class="language-dart codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-dart codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">List&lt;String&gt; foods = ['pizza', 'chicken'];</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">for( var food in foods ){</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">	print(food);</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">}</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<ul>
+<li>리스트를 이용해서 반복문을 사용할 때</li>
+</ul>
+</li>
+<li>
+<p><code>continue</code></p>
+<div class="language-dart codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-dart codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">for (final fruit in fruits){</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">	if(fruit == '파인애플'){</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">		continue;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">	}</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">	print('맛있는 $fruit');</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">}</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<ul>
+<li>continue를 쓰면 반복문을 건너뛰고 처음으로 돌아감</li>
+</ul>
+</li>
+</ul></div></div></div></details>
+<details class="details_lb9f alert alert--info details_b_Ee" data-collapsed="true"><summary>컬렉션</summary><div><div class="collapsibleContent_i85q"><div markdown="1"><ul>
+<li>
+<p><code>List</code></p>
+<ul>
+<li><code>function</code>
+<ul>
+<li><code>length</code> , <code>isEmpty</code></li>
+<li><code>indexOf()</code> , <code>add()</code> , <code>addAll()</code> , <code>remove()</code> , <code>removeAt()</code> , <code>clear()</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Set</p>
+<ul>
+<li><code>Set</code> 에 대해서는 개념이 많이 없었던 것 같다.</li>
+<li>순서 및 인덱스의 개념은 없이 요소들을 저장함</li>
+<li>중복된 값을 허용하지 않음 → 중복된 값이 있으면 하나만 남기고 다 지움<!-- -->
+<ul>
+<li>중복된 값을 제거할 때 사용 가능</li>
+</ul>
+</li>
+<li><code>function</code>
+<ul>
+<li><code>length</code></li>
+<li><code>isEmpty</code></li>
+<li><code>add()</code> <code>addAll()</code>
+<div class="language-dart codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-dart codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">var fruits = {'사과', '파인애플'};</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">var haha = {'haha'}</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">haha.addAll(fruits)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">// {'haha', '사과', '파인애플'}</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+</li>
+<li><code>remove()</code></li>
+<li><code>contains()</code> , <code>containsAll()</code>
+<ul>
+<li><code>contains()</code> 는 하나의 요소가 포함되어 있는지 판별할 때</li>
+<li><code>containsAll()</code> 은 여러 요소가 포함되어 있는지 판별할 때 사용</li>
+<li><code>containsAll()</code> 은 <code>()</code> 에 넣은 요소 중 하나라도 없으면 거짓으로 판별</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><code>Map</code></p>
+<ul>
+<li>
+<p>키와 값이 묶인 하나의 쌍으로 이루어진 형태</p>
+</li>
+<li>
+<p>키는 중복될 수 없지만 값은 중복될 수 있음</p>
+</li>
+<li>
+<p><code>functions</code></p>
+<ul>
+<li>
+<p><code>length</code> , <code>isEmpty</code></p>
+</li>
+<li>
+<p><code>[변수 이름][[키 이름]]</code> 을 통해 값 검색 가능</p>
+</li>
+<li>
+<p><code>[변수 이름][[키 이름]]= [값]</code> 을 통해 값 수정 가능</p>
+</li>
+<li>
+<p><code>[변수 이름][[새로운 키 이름]]= [값]</code> 을 통해 값 추가 가능</p>
+</li>
+<li>
+<p><code>remove(키)</code> 를 통해 제거 가능</p>
+<div class="language-dart codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-dart codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">Map&lt;String, int&gt; people = {'alice' : 25, 'bob' : 30};</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">people.remove('bob);</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+</li>
+<li>
+<p><code>containsKey()</code> 특정요소가 있는지 확인 가능</p>
+</li>
+<li>
+<p><code>keys</code> 를 통해 모든 키들을 알 수 있음</p>
+<div class="language-dart codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-dart codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">print(people.keys)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">// ('alice', 'bob')</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">print(people.values)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">// (35, 37, 35)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+</li>
+<li>
+<p><code>values</code> 모든 값들을 알 수 있음 (중복된 값도 같이 출력됨)</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul></div></div></div></details>
+<details class="details_lb9f alert alert--info details_b_Ee" data-collapsed="true"><summary>열거형</summary><div><div class="collapsibleContent_i85q"><div markdown="1"><ul>
+<li>
+<p>여러 개의 상수 값을 묶는 상태</p>
+</li>
+<li>
+<p>인덱스 개념이 있음</p>
+</li>
+<li>
+<p><code>enum</code> 을 본 적은 많았지만 개념이 없었는데 이번에 이해할 수 있게 되었다.</p>
+</li>
+<li>
+<p><code>switch</code> 문을 통해 열거형에 포함된 값 각각을 다룰 수 있음</p>
+<ul>
+<li><code>enum</code> 은 <code>switch</code> 에 최적화되어 있음</li>
+</ul>
+<div class="language-dart codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-dart codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">enum Color {red, green}</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">var myColor = Color.green;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">var result = '내가 좋아하는 색은 ';</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">switch(myColor){</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">	case Color.red:</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">		result += '빨강';</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">	case Color.green:</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">		result += '초록';</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">}</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">print(result)</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+</li>
+<li>
+<p><code>index</code> 를 통해 열거형에 포함된 값이 몇 번째에 있는지 알 수 있음</p>
+<ul>
+<li><code>Color.red.index  -&gt; 0</code></li>
+</ul>
+</li>
+<li>
+<p><code>values</code></p>
+<ul>
+<li>열거형에 포함된 값을 알 수 있음</li>
+</ul>
+<div class="language-dart codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-dart codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">enum Color {red, green}</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">var colors = Color.values;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">// [Color.red, Color.green]</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">// type은 List&lt;Color&gt;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">print(colors[1]; //Color.green</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+</li>
+<li>
+<p><code>name</code></p>
+<div class="language-dart codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-dart codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">print(Color.red.name); // red</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+</li>
+<li>
+<p>고정된 값들의 집합을 정의할 때 사용 가능</p>
+</li>
+<li>
+<p><code>Set</code> 이랑 뭐가 다른건지?</p>
+<ul>
+<li>처음 정의된 상태에서 값 추가, 제거가 가능한지<!-- -->
+<ul>
+<li><code>Set</code>은 가능하지만 <code>enum</code>은 불가능</li>
+</ul>
+</li>
+<li>중복 값을 넣었을 때 오류가 발생하는지<!-- -->
+<ul>
+<li><code>Set</code>은 오류 발생 안함, <code>enum</code>은 오류 발생</li>
+</ul>
+</li>
+<li>요소들 사이에 순서가 있는지<!-- -->
+<ul>
+<li><code>Set</code> 은 순서가 없지만 <code>enum</code> 은 순서가 있음</li>
+<li><code>Set</code> 에는 index 개념이 없지만 <code>enum</code> 은 있음</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul></div></div></div></details>
+<details class="details_lb9f alert alert--info details_b_Ee" data-collapsed="true"><summary>제네릭</summary><div><div class="collapsibleContent_i85q"><div markdown="1"><ul>
+<li>
+<p>형태</p>
+<ul>
+<li><code>[타입 파라미터] [함수 이름]&lt;타입 파라미터&gt;([매개변수]) { … }</code>
+<div class="language-dart codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-dart codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">T getFirstElement&lt;T&gt;(List&lt;T&gt; list) {</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  return list[0];</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">}</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<ul>
+<li>어라 ? 이런 형태 어디서 많이 보지 않았어요 ? 🤔<!-- -->
+<ul>
+<li>컬렉션 배울 때 봤던 것 같지 않나요 ?<!-- -->
+<ul>
+<li><code>List&lt;int&gt;</code>, <code>List&lt;String&gt;</code>, <code>Set&lt;int&gt;</code>, <code>Set&lt;String&gt;</code> 등등 ..</li>
+<li>실제로 <code>List</code>, <code>Set</code>, <code>Map</code> 은 각각
+<code>List&lt;E&gt;</code>, <code>Set&lt;E&gt;</code>, <code>Map&lt;E, E&gt;</code> 형태로 정의되어 있고,
+타입 파라미터인 <code>E</code> 에 여러 타입이 올 수 있답니다 !</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>왜 사용하나요 ? 사용하면 뭐가 좋은가요 ?</p>
+<ul>
+<li>
+<p>특정 타입에 의존하지 않고, 여러 타입에 대해 동일한 코드를 적용할 수 있어서
+재사용성 높은 코드를 짤 수 있어요 👍🏼</p>
+<div class="language-dart codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-dart codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">int getFirstNumber(List&lt;int&gt; numbers) {</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">return numbers[0];</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">}</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    String getFirstWord(List&lt;String&gt; words) {</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      return words[0];</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    }</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    void main() {</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      var numbers = [0, 1, 2, 3];</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      print(getFirstNumber(numbers)); // 0</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      var words = ['a', 'b', 'c'];</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      print(getFirstWord(words)); // a</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    }</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    ```</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    ```dart</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    T getFirstElement&lt;T&gt;(List&lt;T&gt; list) {</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      return list[0];</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    }</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    void main() {</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      var numbers = [0, 1, 2, 3];</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      print(getFirstElement(numbers)); // 0</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      var words = ['a', 'b', 'c'];</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      print(getFirstElement(words)); // a</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    }</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    ```</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+</li>
+</ul>
+</li>
+<li>
+<p>지금까지 제네릭에 대한 개념이 없으니까 제네릭은 사용할 생각이 없었는데 같은 기능을 가졌는데 데이터 타입이 바뀔 수 있는 경우에는 제네릭을 사용해서 유동적으로 형변환을 가질 수 있도록 하는 게 중요하다느 ㄴ것을 알 수 있었음</p>
+</li>
+</ul></div></div></div></details>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="실습한-내용">실습한 내용<a href="https://footgrammer.github.io/blog/advanced-dart-grammar/#%EC%8B%A4%EC%8A%B5%ED%95%9C-%EB%82%B4%EC%9A%A9" class="hash-link" aria-label="Direct link to 실습한 내용" title="Direct link to 실습한 내용">​</a></h3>
+<ul>
+<li>없었음</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-발생한-문제에러">🚨 발생한 문제/에러<a href="https://footgrammer.github.io/blog/advanced-dart-grammar/#-%EB%B0%9C%EC%83%9D%ED%95%9C-%EB%AC%B8%EC%A0%9C%EC%97%90%EB%9F%AC" class="hash-link" aria-label="Direct link to 🚨 발생한 문제/에러" title="Direct link to 🚨 발생한 문제/에러">​</a></h2>
+<ul>
+<li>for 에서 ; 이 아닌 , 를 사용해서 멍청한 실수를 했음</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-코드-스니펫">📝 코드 스니펫<a href="https://footgrammer.github.io/blog/advanced-dart-grammar/#-%EC%BD%94%EB%93%9C-%EC%8A%A4%EB%8B%88%ED%8E%AB" class="hash-link" aria-label="Direct link to 📝 코드 스니펫" title="Direct link to 📝 코드 스니펫">​</a></h2>
+<div class="language-dart codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-dart codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">// 오늘 배운 주요 코드</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">T getFirstElement&lt;T&gt;(List&lt;T&gt; list){</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">	return list[0];</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">}</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-내일-학습할-내용">📚 내일 학습할 내용<a href="https://footgrammer.github.io/blog/advanced-dart-grammar/#-%EB%82%B4%EC%9D%BC-%ED%95%99%EC%8A%B5%ED%95%A0-%EB%82%B4%EC%9A%A9" class="hash-link" aria-label="Direct link to 📚 내일 학습할 내용" title="Direct link to 📚 내일 학습할 내용">​</a></h2>
+<ul>
+<li>함수형 프로그래밍과 객체 지향 프로그래밍</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-오늘의-회고">💭 오늘의 회고<a href="https://footgrammer.github.io/blog/advanced-dart-grammar/#-%EC%98%A4%EB%8A%98%EC%9D%98-%ED%9A%8C%EA%B3%A0" class="hash-link" aria-label="Direct link to 💭 오늘의 회고" title="Direct link to 💭 오늘의 회고">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="잘한-점-">잘한 점 👍<a href="https://footgrammer.github.io/blog/advanced-dart-grammar/#%EC%9E%98%ED%95%9C-%EC%A0%90-" class="hash-link" aria-label="Direct link to 잘한 점 👍" title="Direct link to 잘한 점 👍">​</a></h3>
+<ul>
+<li>오전에 운동을 하고 학습을 시작할 수 있었음</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="개선할-점-">개선할 점 🔨<a href="https://footgrammer.github.io/blog/advanced-dart-grammar/#%EA%B0%9C%EC%84%A0%ED%95%A0-%EC%A0%90-" class="hash-link" aria-label="Direct link to 개선할 점 🔨" title="Direct link to 개선할 점 🔨">​</a></h3>
+<ul>
+<li>중간에 너무 졸려서 쉬는 시간이 많았음</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="배운-점-">배운 점 💡<a href="https://footgrammer.github.io/blog/advanced-dart-grammar/#%EB%B0%B0%EC%9A%B4-%EC%A0%90-" class="hash-link" aria-label="Direct link to 배운 점 💡" title="Direct link to 배운 점 💡">​</a></h3>
+<ul>
+<li>컬렉션과 제네릭 개념에 대해 알 수 있었음</li>
+<li>제네릭 개념에 대해서는 아직 헷갈리는 게 많아서 조금 더 물어봐야 될 것 같음</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️-참고-자료">✏️ 참고 자료<a href="https://footgrammer.github.io/blog/advanced-dart-grammar/#%EF%B8%8F-%EC%B0%B8%EA%B3%A0-%EC%9E%90%EB%A3%8C" class="hash-link" aria-label="Direct link to ✏️ 참고 자료" title="Direct link to ✏️ 참고 자료">​</a></h2>
+<ul>
+<li>Flutter 공식 문서: <a href="https://docs.flutter.dev/" target="_blank" rel="noopener noreferrer">https://docs.flutter.dev</a></li>
+</ul>]]></content>
+        <author>
+            <name>Junseok Yang</name>
+            <uri>https://github.com/footgrammer</uri>
+        </author>
+        <category label="journal" term="journal"/>
+        <category label="dart pages" term="dart pages"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[다트 기초 문법 익히기]]></title>
         <id>https://footgrammer.github.io/blog/basic-dart-grammar/</id>
@@ -612,7 +890,7 @@
         <category label="flutter" term="flutter"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[The reason why I chose docusaurus for writing blog]]></title>
+        <title type="html"><![CDATA[내가 블로그로 도큐사우루스를 선택한 이유!]]></title>
         <id>https://footgrammer.github.io/blog/start-docusaurus/</id>
         <link href="https://footgrammer.github.io/blog/start-docusaurus/"/>
         <updated>2025-03-04T22:00:00.000Z</updated>

@@ -1,6 +1,6 @@
 ---
 slug: start-docusaurus
-title: The reason why I chose docusaurus for writing blog
+title: 내가 블로그로 도큐사우루스를 선택한 이유!
 authors: [junseok]
 tags: [journal, docusaurus, github-pages]
 date: 2025-03-04T22:00
