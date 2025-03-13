@@ -24,6 +24,6 @@ github-pages:
   description: github tag description
 
 dart:
-  label: dart pages
+  label: dart
   permalink: /dart
   description: about dart grammar
