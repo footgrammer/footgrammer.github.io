@@ -2,11 +2,290 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://footgrammer.github.io/blog/</id>
     <title>Footgrammer Blog</title>
-    <updated>2025-03-14T20:00:00.000Z</updated>
+    <updated>2025-03-17T20:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://footgrammer.github.io/blog/"/>
     <subtitle>Footgrammer Blog</subtitle>
     <icon>https://footgrammer.github.io/img/footballlover.png</icon>
+    <entry>
+        <title type="html"><![CDATA[라이브러리를 이용한 확장]]></title>
+        <id>https://footgrammer.github.io/blog/library/</id>
+        <link href="https://footgrammer.github.io/blog/library/"/>
+        <updated>2025-03-17T20:00:00.000Z</updated>
+        <summary type="html"><![CDATA[아침에 코딩]]></summary>
+        <content type="html"><![CDATA[<h1>📚 오늘의 학습 내용</h1>
+<details class="details_lb9f alert alert--info details_b_Ee" data-collapsed="true"><summary>아침에 코딩</summary><div><div class="collapsibleContent_i85q"><div markdown="1"><div class="language-dart codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-dart codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">* 문제</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">주어진 배열 nums에서 특정 값 val을 제거해야 합니다.</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">제거한 후의 배열은 배열의 처음 부분에 남겨두고, 배열의 길이를 반환해야 합니다.</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">배열에서 제거된 값은 결과에 포함되지 않아야 하며,</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">반환된 길이를 기준으로 원래 배열의 처음 부분에 남은 값이 올바른 결과로 여겨집니다.</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">* 조건</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">1. 0 &lt;= nums.length &lt;= 100</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">2. 0 &lt;= nums[i] &lt;= 50</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">3. 0 &lt;= val &lt;= 100</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div><div class="language-dart codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-dart codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">class Solution {</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  int removeElement(List&lt;int&gt; nums, int val) {</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    int k = 0; // val이 아닌 요소의 개수를 셀 포인터</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    for (int i = 0; i &lt; nums.length; i++) {</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      if (nums[i] != val) {</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        nums[k] = nums[i]; // val이 아닌 요소를 k 위치에 배치</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        k++; // 다음 위치로 이동</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      }</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    }</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    return k; // val이 아닌 요소의 개수를 반환</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  }</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">}</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">void main() {</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  Solution solution = Solution();</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  print(solution.removeElement([3, 2, 2, 3], 3)); // 2</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  print(solution.removeElement([0, 1, 2, 2, 3, 0, 4, 2], 2)); // 5</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">}</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="알게-된-점">알게 된 점<a href="https://footgrammer.github.io/blog/library/#%EC%95%8C%EA%B2%8C-%EB%90%9C-%EC%A0%90" class="hash-link" aria-label="Direct link to 알게 된 점" title="Direct link to 알게 된 점">​</a></h3><ul>
+<li>특정 요소가 제거된 후의 배열까지 만들려고 했었는데 그게 아니라 제거된 후 배열의 길이만 구하면 되어서 간단하게 할 수 있었다.</li>
+</ul></div></div></div></details>
+<p><code>google_fonts</code> , <code>image_picker</code> 등 다양한 꿀 외부 라이브러리에 대해서 알게 됐다.</p>
+<ul>
+<li><code>import '[라이브러리 이름]';</code>
+<div class="language-dart codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-dart codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">import 'dart:html';</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<div class="language-dart codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-dart codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">import 'package:http/http.dart'</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+</li>
+<li><code>import '[파일 경로]';</code>
+<div class="language-dart codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-dart codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">import 'src/my_utils.dart';</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️-주요-학습-내용">✍️ 주요 학습 내용<a href="https://footgrammer.github.io/blog/library/#%EF%B8%8F-%EC%A3%BC%EC%9A%94-%ED%95%99%EC%8A%B5-%EB%82%B4%EC%9A%A9" class="hash-link" aria-label="Direct link to ✍️ 주요 학습 내용" title="Direct link to ✍️ 주요 학습 내용">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="배운-내용">배운 내용<a href="https://footgrammer.github.io/blog/library/#%EB%B0%B0%EC%9A%B4-%EB%82%B4%EC%9A%A9" class="hash-link" aria-label="Direct link to 배운 내용" title="Direct link to 배운 내용">​</a></h3>
+<ul>
+<li>라이브러리 개념</li>
+<li>라이브러리 특징</li>
+<li>라이브러리 종류</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="새로-알게된-개념">새로 알게된 개념<a href="https://footgrammer.github.io/blog/library/#%EC%83%88%EB%A1%9C-%EC%95%8C%EA%B2%8C%EB%90%9C-%EA%B0%9C%EB%85%90" class="hash-link" aria-label="Direct link to 새로 알게된 개념" title="Direct link to 새로 알게된 개념">​</a></h3>
+<details class="details_lb9f alert alert--info details_b_Ee" data-collapsed="true"><summary>라이브러리 종류</summary><div><div class="collapsibleContent_i85q"><div markdown="1"><h3 class="anchor anchorWithStickyNavbar_LWe7" id="dart-sdk-표준-라이브러리">Dart SDK 표준 라이브러리<a href="https://footgrammer.github.io/blog/library/#dart-sdk-%ED%91%9C%EC%A4%80-%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC" class="hash-link" aria-label="Direct link to Dart SDK 표준 라이브러리" title="Direct link to Dart SDK 표준 라이브러리">​</a></h3><ul>
+<li>
+<p>프로그래밍에 필요한 기능을 제공하는 핵심 라이브러리 등을 가지고 있음</p>
+</li>
+<li>
+<p>모든 플랫폼에서 사용 가능</p>
+<ul>
+<li><code>dart:core</code></li>
+<li><code>dart:async</code></li>
+<li><code>dart:collection</code></li>
+<li><code>dart:convert</code>
+<ul>
+<li>Json, UTF-8</li>
+<li>인코더, 디코더 제공</li>
+</ul>
+</li>
+<li><code>dart:developer</code></li>
+<li><code>dart:math</code></li>
+</ul>
+</li>
+<li>
+<p>Native Platform에서 사용 가능</p>
+<ul>
+<li><strong>Native platform</strong> 은 타겟이 <strong>Mobile,</strong> <strong>Desktop</strong> 이라고 했던 것 기억하시죠 ~?</li>
+<li><code>dart:ffi</code>
+<ul>
+<li><strong>Dart</strong> 가 <strong>C</strong> API 를 사용할 수 있도록 하는 기능을 제공해요.</li>
+</ul>
+</li>
+<li><code>dart:io</code>
+<ul>
+<li>파일, 소켓, HTTP, 기타 입출력 등의 기능을 제공해요.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Web platform에서 사용 가능</p>
+<ul>
+<li>참고로, <strong>Web platform</strong> 은 <strong>JavaScript</strong> 로 컴파일되는 코드랍니다 !</li>
+<li><code>package:web</code>
+<ul>
+<li>가벼운 브라우저 API 와 연결하는 기능을 제공해요.</li>
+</ul>
+</li>
+<li><code>dart:js_interop</code>
+<ul>
+<li><strong>JavaScript</strong> 와 브라우저 API 를 상호운용할 수 있는 기능을 제공해요.</li>
+</ul>
+</li>
+<li><code>dart:html</code>
+<ul>
+<li><strong>HTML</strong> 요소들과 <strong>Web</strong> 기반 응용 프로그램 리소스들을 제공해요.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="dart-sdk에-포함되어-있지-않은-라이브러리">Dart SDK에 포함되어 있지 않은 라이브러리<a href="https://footgrammer.github.io/blog/library/#dart-sdk%EC%97%90-%ED%8F%AC%ED%95%A8%EB%90%98%EC%96%B4-%EC%9E%88%EC%A7%80-%EC%95%8A%EC%9D%80-%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC" class="hash-link" aria-label="Direct link to Dart SDK에 포함되어 있지 않은 라이브러리" title="Direct link to Dart SDK에 포함되어 있지 않은 라이브러리">​</a></h3><ul>
+<li><a href="http://pub.dev/" target="_blank" rel="noopener noreferrer">Pub.dev</a> 에서 다양한 외부 라이브러리를 쉽게 찾아서 사용할 수 있어요 🤩</li>
+<li><code>cupertino_icons</code>
+<ul>
+<li><strong>Flutter</strong> 의 <strong>Cupertino</strong> 위젯에 쓰이는 기본 아이콘 에셋을 제공해요.</li>
+</ul>
+</li>
+<li><code>intl</code>
+<ul>
+<li>번역, 날짜 포맷팅, 숫자 포맷팅 등 국제화와 현지화 기능을 제공해요.</li>
+</ul>
+</li>
+<li><code>shared_preferences</code>
+<ul>
+<li>간단한 데이터를 다루는 기능을 제공해요.</li>
+<li><strong>iOS</strong> 와 <strong>macOS</strong> 에서 사용하는 <code>NSUserDefaults</code>,
+<strong>Android</strong> 에서 사용하는 <code>SharedPreferences</code> 와 같은 역할을 해요.</li>
+</ul>
+</li>
+<li><code>url_launcher</code>
+<ul>
+<li><strong>URL</strong> 을 다루는 기능을 제공해요.</li>
+</ul>
+</li>
+<li><code>image_picker</code>
+<ul>
+<li><strong>iOS</strong> 와 <strong>Android</strong> 에서 사진 다루는 기능을 제공해요.</li>
+<li>예시로 카메라로 사진 찍는 기능이랑 앨범에서 사진 선택하는 기능이 있어요 !</li>
+</ul>
+</li>
+<li><code>firebase_core</code>
+<ul>
+<li><strong>Firebase</strong> 와 연동하는 작업할 때 필요한 핵심 기능을 제공해요.</li>
+</ul>
+</li>
+<li><code>firebase_auth</code>
+<ul>
+<li><strong>Firebase</strong> 인증 API 를 사용하기 위한 기능을 제공해요.</li>
+</ul>
+</li>
+<li><code>google_fonts</code>
+<ul>
+<li><a href="http://fonts.google.com/" target="_blank" rel="noopener noreferrer">fonts.google.com</a> 에서 제공하는 폰트를 사용하기 위한 기능을 제공해요.</li>
+</ul>
+</li>
+<li><code>permission_handler</code>
+<ul>
+<li><strong>iOS</strong> 와 <strong>Android</strong> 의 권한을 다루는 기능을 제공해요.</li>
+</ul>
+</li>
+<li><code>custom_lint</code>
+<ul>
+<li><strong>Lint</strong> 규칙을 쉽게 적용할 수 있도록 해주는 기능을 제공해요.</li>
+<li><strong>Lint</strong> ?<!-- -->
+<ul>
+<li>어떤 친구인가요 ?<!-- -->
+<ul>
+<li>오류가 발생할 수 있는 코드,
+코드 스타일에 어긋난 코드,
+비효율적이거나 불필요한 코드 등을 찾아내서 경고를 띄워주는 도구</li>
+</ul>
+</li>
+<li>왜 사용하나요 ? 사용하면 뭐가 좋은가요 ?<!-- -->
+<ul>
+<li>코드의 품질을 개선할 수 있어요.</li>
+<li>코드의 가독성을 향상시킬 수 있어요.</li>
+<li>유지보수성 높은 프로젝트를 만들 수 있어요.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>flutter_svg</code>
+<ul>
+<li><strong>SVG</strong> 를 렌더링하기 위한 기능을 제공해요.</li>
+</ul>
+</li>
+<li><code>cached_network_image</code>
+<ul>
+<li>네트워크를 통해 사진을 받아오고, 캐싱하는 기능을 제공해요.</li>
+</ul>
+</li>
+<li><code>flutter_local_notifications</code>
+<ul>
+<li>로컬 알림을 다루는 기능 (ex. 알림 표시, 알림 예약) 을 제공해요.</li>
+</ul>
+</li>
+<li><code>path_provider</code>
+<ul>
+<li>파일 시스템을 사용하기 위한 기능을 제공해요.</li>
+</ul>
+</li>
+<li><code>geolocator</code>
+<ul>
+<li><strong>iOS</strong> 와 <strong>Android</strong> 에서 위치를 다루기 위한 기능을 제공해요.</li>
+</ul>
+</li>
+<li><code>dio</code>
+<ul>
+<li><strong>HTTP</strong> 네트워크 사용을 위한 기능을 제공해요.</li>
+</ul>
+</li>
+</ul></div></div></div></details>
+<details class="details_lb9f alert alert--info details_b_Ee" data-collapsed="true"><summary>라이브러리 특징</summary><div><div class="collapsibleContent_i85q"><div markdown="1"><ul>
+<li>어떤 특징이 있나요 ?<!-- -->
+<ul>
+<li><code>as</code> 를 통해 라이브러리에 별칭을 부여할 수 있어요.<!-- -->
+<div class="language-dart codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-dart codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">import 'package:http/http.dart' as http;</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+</li>
+<li><code>show</code> 를 통해 라이브러리에서 필요한 부분만 선택적으로 가져올 수 있어요.<!-- -->
+<div class="language-dart codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-dart codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">import 'package:lib1/lib1.dart' show foo;</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+</li>
+<li><code>hide</code> 를 통해 라이브러리의 특정 부분을 제외하고 가져올 수 있어요.<!-- -->
+<div class="language-dart codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-dart codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">import 'package:lib2/lib2.dart' hide foo;</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+</li>
+<li><code>deferred as</code> 를 통해 라이브러리가 필요한 시점에 로드되도록 할 수 있어요.<!-- -->
+<ul>
+<li><strong>지연 로딩</strong> 이라고도 불러요 🙂</li>
+<li>왜 사용하나요 ? 사용하면 뭐가 좋은가요 ?<!-- -->
+<ul>
+<li>필요한 시점에 라이브러리가 로드되기 때문에
+초기화하는 시간이 줄어들고, 성능이 향상돼요 👍🏼</li>
+</ul>
+</li>
+<li>어떤 특징이 있나요 ?<!-- -->
+<ul>
+<li>모든 플랫폼에서 지원하는 것은 아니고, <strong>Web platform</strong> 에서만 지원해요 🥹</li>
+</ul>
+</li>
+<li>어떻게 생겼나요 ?<!-- -->
+<ul>
+<li><code>import ‘[라이브러리 이름이나 파일 경로]’ deferred as [식별자];</code>
+<div class="language-dart codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-dart codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">import 'package:greetings/hello.dart' deferred as hello;</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+</li>
+</ul>
+</li>
+<li>어떻게 동작하나요 ?<!-- -->
+<ul>
+<li><code>deferred as</code> 뒤에 썼던 식별자를 통해 <code>loadLibrary()</code> 를
+라이브러리가 필요한 시점에 호출하면 그 라이브러리를 불러와요 !<!-- -->
+<div class="language-dart codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-dart codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">import 'package:greetings/hello.dart' deferred as hello;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Future&lt;void&gt; greet() async {</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  await hello.loadLibrary();</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  hello.printGreeting();</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">}</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+</li>
+<li>저는 <code>loadLibrary()</code> 를 정의한 적이 없는데, 어떻게 된건가요 ?<!-- -->
+<ul>
+<li><code>deferred as [식별자]</code> 를 통해 식별자를 만들어 주는 순간,
+그 식별자에 <code>loadLibrary()</code> 가 자동으로 정의된답니다 🤩</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul></div></div></div></details>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="실습한-내용">실습한 내용<a href="https://footgrammer.github.io/blog/library/#%EC%8B%A4%EC%8A%B5%ED%95%9C-%EB%82%B4%EC%9A%A9" class="hash-link" aria-label="Direct link to 실습한 내용" title="Direct link to 실습한 내용">​</a></h3>
+<ul>
+<li>없음</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-발생한-문제에러">🚨 발생한 문제/에러<a href="https://footgrammer.github.io/blog/library/#-%EB%B0%9C%EC%83%9D%ED%95%9C-%EB%AC%B8%EC%A0%9C%EC%97%90%EB%9F%AC" class="hash-link" aria-label="Direct link to 🚨 발생한 문제/에러" title="Direct link to 🚨 발생한 문제/에러">​</a></h2>
+<ul>
+<li>없음</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-코드-스니펫">📝 코드 스니펫<a href="https://footgrammer.github.io/blog/library/#-%EC%BD%94%EB%93%9C-%EC%8A%A4%EB%8B%88%ED%8E%AB" class="hash-link" aria-label="Direct link to 📝 코드 스니펫" title="Direct link to 📝 코드 스니펫">​</a></h2>
+<div class="language-dart codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-dart codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">// 오늘 배운 주요 코드</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">import 'dart:io';</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-내일-학습할-내용">📚 내일 학습할 내용<a href="https://footgrammer.github.io/blog/library/#-%EB%82%B4%EC%9D%BC-%ED%95%99%EC%8A%B5%ED%95%A0-%EB%82%B4%EC%9A%A9" class="hash-link" aria-label="Direct link to 📚 내일 학습할 내용" title="Direct link to 📚 내일 학습할 내용">​</a></h2>
+<ul>
+<li>개인과제 준비</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-오늘의-회고">💭 오늘의 회고<a href="https://footgrammer.github.io/blog/library/#-%EC%98%A4%EB%8A%98%EC%9D%98-%ED%9A%8C%EA%B3%A0" class="hash-link" aria-label="Direct link to 💭 오늘의 회고" title="Direct link to 💭 오늘의 회고">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="잘한-점-">잘한 점 👍<a href="https://footgrammer.github.io/blog/library/#%EC%9E%98%ED%95%9C-%EC%A0%90-" class="hash-link" aria-label="Direct link to 잘한 점 👍" title="Direct link to 잘한 점 👍">​</a></h3>
+<ul>
+<li>음..</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="개선할-점-">개선할 점 🔨<a href="https://footgrammer.github.io/blog/library/#%EA%B0%9C%EC%84%A0%ED%95%A0-%EC%A0%90-" class="hash-link" aria-label="Direct link to 개선할 점 🔨" title="Direct link to 개선할 점 🔨">​</a></h3>
+<ul>
+<li>계획 세우기</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="배운-점-">배운 점 💡<a href="https://footgrammer.github.io/blog/library/#%EB%B0%B0%EC%9A%B4-%EC%A0%90-" class="hash-link" aria-label="Direct link to 배운 점 💡" title="Direct link to 배운 점 💡">​</a></h3>
+<ul>
+<li>라이브러리</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️-참고-자료">✏️ 참고 자료<a href="https://footgrammer.github.io/blog/library/#%EF%B8%8F-%EC%B0%B8%EA%B3%A0-%EC%9E%90%EB%A3%8C" class="hash-link" aria-label="Direct link to ✏️ 참고 자료" title="Direct link to ✏️ 참고 자료">​</a></h2>
+<ul>
+<li>Flutter 공식 문서: <a href="https://docs.flutter.dev/" target="_blank" rel="noopener noreferrer">https://docs.flutter.dev</a></li>
+</ul>]]></content>
+        <author>
+            <name>Junseok Yang</name>
+            <uri>https://github.com/footgrammer</uri>
+        </author>
+        <category label="journal" term="journal"/>
+        <category label="dart" term="dart"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[에러 헨들링]]></title>
         <id>https://footgrammer.github.io/blog/error-handling/</id>
