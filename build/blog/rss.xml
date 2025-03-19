@@ -4,10 +4,76 @@
         <title>Footgrammer Blog</title>
         <link>https://footgrammer.github.io/blog/</link>
         <description>Footgrammer Blog</description>
-        <lastBuildDate>Tue, 18 Mar 2025 20:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 19 Mar 2025 20:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[콘솔 RPG 게임 필수 기능 만들기]]></title>
+            <link>https://footgrammer.github.io/blog/basic-rpg-game/</link>
+            <guid>https://footgrammer.github.io/blog/basic-rpg-game/</guid>
+            <pubDate>Wed, 19 Mar 2025 20:00:00 GMT</pubDate>
+            <description><![CDATA[- 콘솔 RPG 게임 만들기]]></description>
+            <content:encoded><![CDATA[<h1>📚 오늘의 학습 내용</h1>
+<ul>
+<li>콘솔 RPG 게임 만들기</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️-주요-학습-내용">✍️ 주요 학습 내용<a href="https://footgrammer.github.io/blog/basic-rpg-game/#%EF%B8%8F-%EC%A3%BC%EC%9A%94-%ED%95%99%EC%8A%B5-%EB%82%B4%EC%9A%A9" class="hash-link" aria-label="Direct link to ✍️ 주요 학습 내용" title="Direct link to ✍️ 주요 학습 내용">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="배운-내용">배운 내용<a href="https://footgrammer.github.io/blog/basic-rpg-game/#%EB%B0%B0%EC%9A%B4-%EB%82%B4%EC%9A%A9" class="hash-link" aria-label="Direct link to 배운 내용" title="Direct link to 배운 내용">​</a></h3>
+<ul>
+<li>랜덤으로 값을 뽑아내는 기능</li>
+<li>파일 입출력을 처리하는 기능</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="새로-알게된-개념">새로 알게된 개념<a href="https://footgrammer.github.io/blog/basic-rpg-game/#%EC%83%88%EB%A1%9C-%EC%95%8C%EA%B2%8C%EB%90%9C-%EA%B0%9C%EB%85%90" class="hash-link" aria-label="Direct link to 새로 알게된 개념" title="Direct link to 새로 알게된 개념">​</a></h3>
+<p>콘솔 입력</p>
+<ul>
+<li><code>stdin.readLineSync()</code></li>
+</ul>
+<p>콘솔 입력 받기 전에 안내문구 입력</p>
+<ul>
+<li><code>stdout.write()</code></li>
+</ul>
+<p>파일 관련</p>
+<div class="language-dart codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-dart codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">final file = File(’./gameStats/characters.text’);</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">final contents = file.readAsStringSync();</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">final stats = contents.split(',');</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p>랜덤값 구하기</p>
+<div class="language-dart codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-dart codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">import 'dart:math';</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">int attackingPower = Random().nextInt(100) + 10</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p><code>nextInt(100)</code></p>
+<p>→ 0부터 99까지의 랜덤값을 출력</p>
+<p>→ +를 사용해 최소값을 정할 수 있음</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="실습한-내용">실습한 내용<a href="https://footgrammer.github.io/blog/basic-rpg-game/#%EC%8B%A4%EC%8A%B5%ED%95%9C-%EB%82%B4%EC%9A%A9" class="hash-link" aria-label="Direct link to 실습한 내용" title="Direct link to 실습한 내용">​</a></h3>
+<ul>
+<li>필수기능 구현</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-발생한-문제에러">🚨 발생한 문제/에러<a href="https://footgrammer.github.io/blog/basic-rpg-game/#-%EB%B0%9C%EC%83%9D%ED%95%9C-%EB%AC%B8%EC%A0%9C%EC%97%90%EB%9F%AC" class="hash-link" aria-label="Direct link to 🚨 발생한 문제/에러" title="Direct link to 🚨 발생한 문제/에러">​</a></h2>
+<ul>
+<li>아직까진 없음</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-코드-스니펫">📝 코드 스니펫<a href="https://footgrammer.github.io/blog/basic-rpg-game/#-%EC%BD%94%EB%93%9C-%EC%8A%A4%EB%8B%88%ED%8E%AB" class="hash-link" aria-label="Direct link to 📝 코드 스니펫" title="Direct link to 📝 코드 스니펫">​</a></h2>
+<div class="language-dart codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-dart codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">// 오늘 배운 주요 코드</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">int randomInt = Random().nextInt(100) + 10;</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-내일-학습할-내용">📚 내일 학습할 내용<a href="https://footgrammer.github.io/blog/basic-rpg-game/#-%EB%82%B4%EC%9D%BC-%ED%95%99%EC%8A%B5%ED%95%A0-%EB%82%B4%EC%9A%A9" class="hash-link" aria-label="Direct link to 📚 내일 학습할 내용" title="Direct link to 📚 내일 학습할 내용">​</a></h2>
+<ul>
+<li>개인과제 도전 기능 구현</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-오늘의-회고">💭 오늘의 회고<a href="https://footgrammer.github.io/blog/basic-rpg-game/#-%EC%98%A4%EB%8A%98%EC%9D%98-%ED%9A%8C%EA%B3%A0" class="hash-link" aria-label="Direct link to 💭 오늘의 회고" title="Direct link to 💭 오늘의 회고">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="잘한-점-">잘한 점 👍<a href="https://footgrammer.github.io/blog/basic-rpg-game/#%EC%9E%98%ED%95%9C-%EC%A0%90-" class="hash-link" aria-label="Direct link to 잘한 점 👍" title="Direct link to 잘한 점 👍">​</a></h3>
+<ul>
+<li>음 .. 최선을 다한 것?</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="개선할-점-">개선할 점 🔨<a href="https://footgrammer.github.io/blog/basic-rpg-game/#%EA%B0%9C%EC%84%A0%ED%95%A0-%EC%A0%90-" class="hash-link" aria-label="Direct link to 개선할 점 🔨" title="Direct link to 개선할 점 🔨">​</a></h3>
+<ul>
+<li>시간관리</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="배운-점-">배운 점 💡<a href="https://footgrammer.github.io/blog/basic-rpg-game/#%EB%B0%B0%EC%9A%B4-%EC%A0%90-" class="hash-link" aria-label="Direct link to 배운 점 💡" title="Direct link to 배운 점 💡">​</a></h3>
+<ul>
+<li>파일 입출력</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️-참고-자료">✏️ 참고 자료<a href="https://footgrammer.github.io/blog/basic-rpg-game/#%EF%B8%8F-%EC%B0%B8%EA%B3%A0-%EC%9E%90%EB%A3%8C" class="hash-link" aria-label="Direct link to ✏️ 참고 자료" title="Direct link to ✏️ 참고 자료">​</a></h2>
+<ul>
+<li>Flutter 공식 문서: <a href="https://docs.flutter.dev/" target="_blank" rel="noopener noreferrer">https://docs.flutter.dev</a></li>
+</ul>]]></content:encoded>
+            <category>journal</category>
+            <category>dart</category>
+        </item>
         <item>
             <title><![CDATA[비동기 프로그래밍]]></title>
             <link>https://footgrammer.github.io/blog/asynchronous-programming/</link>
