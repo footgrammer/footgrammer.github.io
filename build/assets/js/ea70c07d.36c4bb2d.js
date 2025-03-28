@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkfootgrammer=self.webpackChunkfootgrammer||[]).push([[8732],{6387:e=>{e.exports=JSON.parse('{"metadata":{"permalink":"/blog/page/2","page":2,"postsPerPage":10,"totalPages":2,"totalCount":19,"previousPage":"/blog","blogDescription":"Blog","blogTitle":"Blog"}}')}}]);
