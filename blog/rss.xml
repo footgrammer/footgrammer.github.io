@@ -4,10 +4,129 @@
         <title>Footgrammer Blog</title>
         <link>https://footgrammer.github.io/blog/</link>
         <description>Footgrammer Blog</description>
-        <lastBuildDate>Fri, 28 Mar 2025 20:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 02 Apr 2025 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[2025-04-02-flutter-train-challenge-function]]></title>
+            <link>https://footgrammer.github.io/blog/2025/04/02/flutter-train-challenge-function/</link>
+            <guid>https://footgrammer.github.io/blog/2025/04/02/flutter-train-challenge-function/</guid>
+            <pubDate>Wed, 02 Apr 2025 00:00:00 GMT</pubDate>
+            <description><![CDATA[---]]></description>
+            <content:encoded><![CDATA[<hr>
+<p>slug: flutter-train-challenge-function
+title: 플러터 기차 예매 서비스 구현하면서 느낀 점
+authors: [junseok]
+tags: [journal, flutter]
+date: 2025-04-01T20:00</p>
+<hr>
+<h1>📚 오늘의 학습 내용</h1>
+<p>오늘은 개인과제인 기차예매 앱을 마무리할 수 있었다. 볼 때는 간단해 보였지만 막상 해보니까 생각지도 못한 부분에서 오류도 많이 났고 다트 문법이 아직 부족하다는 부분을 알 수 있었다.</p>
+<p>강의를 들을 때는 당연한 것처럼 느껴졌지만 <code>required</code> <code>final</code> <code>const</code> 이런 것들을 언제 붙이고 언제 사용해야 하는지 애매한 부분들도 있었고 생성자도 어떤 식으로 하는 게 좋은지 개념이 확실하지 않다는 것을 알게 되</p>
+<p>어서 역시 내가 스스로 해 보는 게 중요하다고 많이 느끼게 되었다.</p>
+<p>또한 코드의 가독성을 높이기 위해서 코드를 메소드화하거나 클래스로 따로 빼서 사용하는 등의 작업들도 아직은 익숙하지 않아서 반복되는 작업들은 메소드로 빼는 게 중요하다는 것도 알게 되었다.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️-주요-학습-내용">✍️ 주요 학습 내용<a href="https://footgrammer.github.io/blog/2025/04/02/flutter-train-challenge-function/#%EF%B8%8F-%EC%A3%BC%EC%9A%94-%ED%95%99%EC%8A%B5-%EB%82%B4%EC%9A%A9" class="hash-link" aria-label="Direct link to ✍️ 주요 학습 내용" title="Direct link to ✍️ 주요 학습 내용">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="배운-내용">배운 내용<a href="https://footgrammer.github.io/blog/2025/04/02/flutter-train-challenge-function/#%EB%B0%B0%EC%9A%B4-%EB%82%B4%EC%9A%A9" class="hash-link" aria-label="Direct link to 배운 내용" title="Direct link to 배운 내용">​</a></h3>
+<ul>
+<li></li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="새로-알게된-개념">새로 알게된 개념<a href="https://footgrammer.github.io/blog/2025/04/02/flutter-train-challenge-function/#%EC%83%88%EB%A1%9C-%EC%95%8C%EA%B2%8C%EB%90%9C-%EA%B0%9C%EB%85%90" class="hash-link" aria-label="Direct link to 새로 알게된 개념" title="Direct link to 새로 알게된 개념">​</a></h3>
+<ol>
+<li>함수 vs 함수()의 차이</li>
+</ol>
+<div class="language-dart codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-dart codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">onPressed : function</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">onPressed : function() // return 값이 없으므로 에러</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">void function(){</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">	print('haha');</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">}</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<ul>
+<li>function 과 function() 의 차이를 알지 못했는데 ()가 붙으면 return 값을 가져오겠다는 의미가 있어서 return 값으로 치환되어서 컴퓨터가 인식한다는 것을 알게 되었다.</li>
+</ul>
+<ol>
+<li>ListView 오류</li>
+</ol>
+<ul>
+<li>Column 안에 ListView를 사용하게 되면 오류가 남</li>
+<li>ListView는 부모 위젯의 높이에 높이를 맞추게 되는데 Column의 높이는 무한이기 때문에 ListView의 높이도 부모위젯을 따라서 무한해지게 되기 때문에 오류가 남
+→ ListView의 높이를 설정해야 함</li>
+<li><strong>Expanded 로 감싸서 ListView를 사용하는 것을 추천</strong></li>
+</ul>
+<ol>
+<li>SafeArea 사용</li>
+</ol>
+<ul>
+<li>버튼이 화면 맨 밑에 붙어 있어서 나는 패딩으로 올릴 생각을 했는데 SafeArea로 감싸주면 너무 간편하고 이쁘게 화면구성을 할 수 있었음</li>
+</ul>
+<ol>
+<li>Navigator 사용</li>
+</ol>
+<ul>
+<li>특정 페이지로 이동</li>
+</ul>
+<div class="language-dart codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-dart codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">Navigator.push(</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  context,</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  MaterialPageRoute(</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    builder: (context) {</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      return SeatPage(</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        departure: departure!,</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        arrival: arrival!,</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      );</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    },</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  ),</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">);</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<ul>
+<li>전 화면으로 이동</li>
+</ul>
+<div class="language-dart codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-dart codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">Navigator.pop(context)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">// 특정 데이터를 전 화면으로 보낼 수 있음</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Navigator.pop(context, result)</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<ul>
+<li>데이터를 받을 때</li>
+</ul>
+<div class="language-dart codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-dart codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">onTap : () async {</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">	String? result = await Navigator.push(</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">		context,</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">	  MaterialPageRoute(</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">	    builder: (context) {</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">	      return StationListPage(title, departure, arrival);</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">	    },</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">	  ),</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">	);</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">}</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<ol>
+<li>??</li>
+</ol>
+<div class="language-dart codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-dart codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">arrival ?? '선택'</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<ul>
+<li><code>arrival</code> 이 <code>null</code> 이면 ‘선택’을 <code>arrival</code>에 넣으라는 의미</li>
+</ul>
+<ol>
+<li>builder로 감싸기</li>
+</ol>
+<ul>
+<li>코드를 메서드화하거나 클래스로 분리하다 보면 때때로 context를 받을 때가 필요한데 그럴 때 나는 인자로 context를 갖고 와서 쓰고 있었는데 그렇게 하지 않고 builder widget으로 감싸면 쉽게 context를 받아서 쓸 수가 있었음..</li>
+</ul>
+<div class="language-dart codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-dart codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">Expanded stationArea(String title, String station) {</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    return Expanded(</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      child: Builder(</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        builder: (context) {</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">          return GestureDetector(</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">            onTap: () async {</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">              String? result = await Navigator.push(</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">                context,</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">                MaterialPageRoute(</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">                  builder: (context) {</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">                    return StationListPage(title, departure, arrival);</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">                  },</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">                ),</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">              );</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">              if (result != null) {</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">                setState(() {</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">                  if (title == '출발역') {</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">                    departure = result;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">                  } else {</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">                    arrival = result;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">                  }</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">                });</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">              }</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">            },</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">            child: Column(</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">              mainAxisAlignment: MainAxisAlignment.center,</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">              children: [</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">                Text(</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">                  title,</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">                  style: TextStyle(</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">                    fontSize: 16,</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">                    color: Colors.grey,</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">                    fontWeight: FontWeight.bold,</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">                  ),</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">                ),</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">                Text(station, style: TextStyle(fontSize: 40)),</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">              ],</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">            ),</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">          );</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        },</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      ),</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    );</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  }</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<ol>
+<li>DefaultTextStyle</li>
+</ol>
+<ul>
+<li>DefaultTextStyle로 감싸서 내부에 있는 child 안에 text style을 한 번에 지정해 줄 수 있음</li>
+</ul>
+<ol>
+<li>테마 컬러</li>
+</ol>
+<ul>
+<li>테마에서 설정한 색상들을 사용할 때</li>
+<li>color : <code>Theme.of(context).[색상명]</code></li>
+</ul>
+<ol>
+<li><code>List.generate</code></li>
+</ol>
+<div class="language-dart codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-dart codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">List.generate(20, (index) =&gt; Widget())</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">-&gt; 20개의 위젯을 담은 List&lt;Widget&gt;이 반환됨</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">-&gt; ...List.generate(20, (index) =&gt; Widget())</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">-&gt; 이렇게 하면 바로 사용할 수 있음.</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="실습한-내용">실습한 내용<a href="https://footgrammer.github.io/blog/2025/04/02/flutter-train-challenge-function/#%EC%8B%A4%EC%8A%B5%ED%95%9C-%EB%82%B4%EC%9A%A9" class="hash-link" aria-label="Direct link to 실습한 내용" title="Direct link to 실습한 내용">​</a></h3>
+<ul>
+<li>다크 테마 적용</li>
+<li>Navigator 활용</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-내일-학습할-내용">📚 내일 학습할 내용<a href="https://footgrammer.github.io/blog/2025/04/02/flutter-train-challenge-function/#-%EB%82%B4%EC%9D%BC-%ED%95%99%EC%8A%B5%ED%95%A0-%EB%82%B4%EC%9A%A9" class="hash-link" aria-label="Direct link to 📚 내일 학습할 내용" title="Direct link to 📚 내일 학습할 내용">​</a></h2>
+<ul>
+<li>팀플 시작</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-오늘의-회고">💭 오늘의 회고<a href="https://footgrammer.github.io/blog/2025/04/02/flutter-train-challenge-function/#-%EC%98%A4%EB%8A%98%EC%9D%98-%ED%9A%8C%EA%B3%A0" class="hash-link" aria-label="Direct link to 💭 오늘의 회고" title="Direct link to 💭 오늘의 회고">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="잘한-점-">잘한 점 👍<a href="https://footgrammer.github.io/blog/2025/04/02/flutter-train-challenge-function/#%EC%9E%98%ED%95%9C-%EC%A0%90-" class="hash-link" aria-label="Direct link to 잘한 점 👍" title="Direct link to 잘한 점 👍">​</a></h3>
+<ul>
+<li>코드 리펙토링</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="개선할-점-">개선할 점 🔨<a href="https://footgrammer.github.io/blog/2025/04/02/flutter-train-challenge-function/#%EA%B0%9C%EC%84%A0%ED%95%A0-%EC%A0%90-" class="hash-link" aria-label="Direct link to 개선할 점 🔨" title="Direct link to 개선할 점 🔨">​</a></h3>
+<ul>
+<li>다트 개념 복습</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="배운-점-">배운 점 💡<a href="https://footgrammer.github.io/blog/2025/04/02/flutter-train-challenge-function/#%EB%B0%B0%EC%9A%B4-%EC%A0%90-" class="hash-link" aria-label="Direct link to 배운 점 💡" title="Direct link to 배운 점 💡">​</a></h3>
+<ul>
+<li>정리해 놓은 내용들</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️-참고-자료">✏️ 참고 자료<a href="https://footgrammer.github.io/blog/2025/04/02/flutter-train-challenge-function/#%EF%B8%8F-%EC%B0%B8%EA%B3%A0-%EC%9E%90%EB%A3%8C" class="hash-link" aria-label="Direct link to ✏️ 참고 자료" title="Direct link to ✏️ 참고 자료">​</a></h2>
+<ul>
+<li>Flutter 공식 문서: <a href="https://docs.flutter.dev/" target="_blank" rel="noopener noreferrer">https://docs.flutter.dev</a></li>
+</ul>]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[플러터 개인과제 기차 예매 앱 구상하기!]]></title>
             <link>https://footgrammer.github.io/blog/flutter-train-app/</link>
@@ -3309,25 +3428,6 @@ needle이 존재하지 않으면 -1을 반환합니다.</p>
             <category>journal</category>
             <category>Docusaurus</category>
             <category>github pages</category>
-        </item>
-        <item>
-            <title><![CDATA[Welcome]]></title>
-            <link>https://footgrammer.github.io/blog/welcome/</link>
-            <guid>https://footgrammer.github.io/blog/welcome/</guid>
-            <pubDate>Mon, 03 Mar 2025 00:00:00 GMT</pubDate>
-            <description><![CDATA[Here are a few tips you might find useful.]]></description>
-            <content:encoded><![CDATA[<p>Here are a few tips you might find useful.</p>
-<p>Simply add Markdown files (or folders) to the <code>blog</code> directory.</p>
-<p>Regular blog authors can be added to <code>authors.yml</code>.</p>
-<p>The blog post date can be extracted from filenames, such as:</p>
-<ul>
-<li><code>2019-05-30-welcome.md</code></li>
-<li><code>2019-05-30-welcome/index.md</code></li>
-</ul>
-<p>A blog post folder can be convenient to co-locate blog post images:</p>
-<p><img decoding="async" loading="lazy" alt="Docusaurus Plushie" src="https://footgrammer.github.io/assets/images/docusaurus-plushie-banner-a60f7593abca1e3eef26a9afa244e4fb.jpeg" width="1500" height="500" class="img_ev3q"></p>
-<p>The blog supports tags as well!</p>
-<p><strong>And if you don't want a blog</strong>: just delete this directory, and use <code>blog: false</code> in your Docusaurus config.</p>]]></content:encoded>
         </item>
     </channel>
 </rss>
