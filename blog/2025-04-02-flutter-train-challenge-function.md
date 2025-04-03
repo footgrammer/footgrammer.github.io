@@ -1,14 +1,12 @@
-# 2025-04-02-flutter-train-challenge-function
-
 ---
-
 slug: flutter-train-challenge-function
 title: 플러터 기차 예매 서비스 구현하면서 느낀 점
 authors: [junseok]
 tags: [journal, flutter]
 date: 2025-04-01T20:00
-
 ---
+
+# 2025-04-02-flutter-train-challenge-function
 
 # 📚 오늘의 학습 내용
 
