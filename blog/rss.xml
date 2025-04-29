@@ -4,10 +4,70 @@
         <title>Footgrammer Blog</title>
         <link>https://footgrammer.github.io/blog/</link>
         <description>Footgrammer Blog</description>
-        <lastBuildDate>Fri, 25 Apr 2025 20:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 28 Apr 2025 20:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[운동하실 앱을 만들면서 느낀 것!]]></title>
+            <link>https://footgrammer.github.io/blog/wanna-exercise-board/</link>
+            <guid>https://footgrammer.github.io/blog/wanna-exercise-board/</guid>
+            <pubDate>Mon, 28 Apr 2025 20:00:00 GMT</pubDate>
+            <description><![CDATA[- 조별 과제를 마무리하면서]]></description>
+            <content:encoded><![CDATA[<ul>
+<li>조별 과제를 마무리하면서</li>
+</ul>
+<p>이번 위치 기반 채팅앱 과제를 듣고 나서 예전부터 운동 관련해서 이 기능과 비슷한 서비스를 만들어 보고 싶었는데 때마침 이런 과제가 나와서 좋았고 팀원들도 저의 의견을 반영해 주셔서 감사했던 것 같음</p>
+<p>그래서 내가 만들어 보고 싶은 서비스였기 때문에 평소보다는 의욕 넘치게 앱 로고도 만들어 보고 직접 와이어프레임도 만들었던 것 같음</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="빌드-문제">빌드 문제<a href="https://footgrammer.github.io/blog/wanna-exercise-board/#%EB%B9%8C%EB%93%9C-%EB%AC%B8%EC%A0%9C" class="hash-link" aria-label="Direct link to 빌드 문제" title="Direct link to 빌드 문제">​</a></h3>
+<p>프로젝트를 시작하고 IOS 시뮬레이터 build가 안되어서 여러 가지 시도를 했고 가장 도움이 됐던 것은 <code>flutter run —verbose</code> 로 빌드과정을 콘솔에서 보면서 에러 메시지를 통해서 문제원인을 찾아갈 수 있었고 결국 빌드문제를 해결할 수 있었다.</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="firebase-연동-및-filter-기능-구현">Firebase 연동 및 filter 기능 구현<a href="https://footgrammer.github.io/blog/wanna-exercise-board/#firebase-%EC%97%B0%EB%8F%99-%EB%B0%8F-filter-%EA%B8%B0%EB%8A%A5-%EA%B5%AC%ED%98%84" class="hash-link" aria-label="Direct link to Firebase 연동 및 filter 기능 구현" title="Direct link to Firebase 연동 및 filter 기능 구현">​</a></h3>
+<blockquote>
+<p>firebase를 통해 boards 데이터를 가지고 오고 특정 버튼을 누르면 게시글 가운데 축구, 농구, 풋살, 러닝 등 특정 운동에 관련된 게시글만을 띄우는 기능을 구현하고자 함</p>
+</blockquote>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="viewmodel에서-필터-로직-내장하기">ViewModel에서 필터 로직 내장하기<a href="https://footgrammer.github.io/blog/wanna-exercise-board/#viewmodel%EC%97%90%EC%84%9C-%ED%95%84%ED%84%B0-%EB%A1%9C%EC%A7%81-%EB%82%B4%EC%9E%A5%ED%95%98%EA%B8%B0" class="hash-link" aria-label="Direct link to ViewModel에서 필터 로직 내장하기" title="Direct link to ViewModel에서 필터 로직 내장하기">​</a></h3>
+<ol>
+<li><code>BoardState</code>에 <code>filterType</code> 필드를 추가</li>
+<li><code>BoardViewModel</code> 에 <code>setFilter(String?)</code> 메서드 구현 → <code>state = ..</code> 로 필터 타입 변경</li>
+<li>상태 객체 안에서 <code>filteredBoards</code> 를 계산된 프로퍼티로 노출</li>
+</ol>
+<div class="language-dart codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-dart codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">class BoardState {</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">	final List&lt;Board&gt; boards;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">	final String? filterType;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">	BoardState({</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">		this.boards = const [], this.filterType</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">	});</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">	List&lt;Board&gt; get filteredBoards =&gt; filterType == null</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">	? boards</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">	: boards.where((board) =&gt; board.type == filterType).toList();</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">	BoardState copyWith({ List&lt;Board&gt;? boards, String? filterType}){</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">		return BoardState(</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">			boards : boards ?? this.boards,</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">			filterType : filterType</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">		)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">	}</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">}</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="getter-문법">Getter 문법<a href="https://footgrammer.github.io/blog/wanna-exercise-board/#getter-%EB%AC%B8%EB%B2%95" class="hash-link" aria-label="Direct link to Getter 문법" title="Direct link to Getter 문법">​</a></h3>
+<ul>
+<li>클래스 내의 변수의 값을 상태나 값을 계산한 다음에 제공</li>
+<li><code>get foo</code> → <code>foo</code> 가 변수인 것</li>
+<li><code>obj.foo</code> 로 사용 가능</li>
+<li>매개변수는 받을 수 없음 (메서드는 받을 수 있음)</li>
+</ul>
+<div class="language-dart codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-dart codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">class BoardViewModel extends Notifier&lt;BoardState&gt;{</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">	@override</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  build() {</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    return BoardState(filterType: null);</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  }</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  void getBoards() async {</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    BoardRepository boardRepository = BoardRepository();</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    List&lt;Board&gt;? boards = await boardRepository.getBoardsData();</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    state = state.copyWith(boards: boards);</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  }</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  void setFilter(String? type) {</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    state = state.copyWith(filterType: type);</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  }</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">}</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="getboards"><code>getBoards()</code><a href="https://footgrammer.github.io/blog/wanna-exercise-board/#getboards" class="hash-link" aria-label="Direct link to getboards" title="Direct link to getboards">​</a></h3>
+<ul>
+<li><code>filter</code>가 없는 <code>boards</code> 를 가지고 와줌</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="setfilter"><code>setFilter()</code><a href="https://footgrammer.github.io/blog/wanna-exercise-board/#setfilter" class="hash-link" aria-label="Direct link to setfilter" title="Direct link to setfilter">​</a></h3>
+<ul>
+<li><code>filter</code> 를 정함으로써 <code>state</code> 의 <code>filteredBoards</code> 의 상태가 변하게 됨</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="board_pagedart"><code>Board_page.dart</code><a href="https://footgrammer.github.io/blog/wanna-exercise-board/#board_pagedart" class="hash-link" aria-label="Direct link to board_pagedart" title="Direct link to board_pagedart">​</a></h3>
+<div class="language-dart codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-dart codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">Expanded(</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  child: ListView.builder(</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    itemCount: boardState.filteredBoards?.length ?? 0,</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    itemBuilder: (context, index) {</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      final List&lt;Board&gt; boards = boardState.filteredBoards!;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      return BoardItem(boards[index]);</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    },</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  ),</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">),</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<ul>
+<li><code>board_page</code> 에서 <code>boardState</code> 의 <code>boards</code> 가 아닌 <code>filteredBoards</code> 를 사용함으로써 <code>filterType</code> 의 유무에 따라 달라지는 <code>filteredBoards</code> 을 받을 수 있음</li>
+</ul>
+<div class="language-dart codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-dart codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">FilterButton(</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  text: '전체',</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  filterFunction: () =&gt; ref</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    .read(boardViewModelProvider.notifier)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    .setFilter(null),</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">),</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<ul>
+<li><code>ref.read(boardViewModelProvider.notifier)</code> → boardViewModel</li>
+<li><code>ref.watch(boardViewModelProvider)</code> → boardState</li>
+</ul>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="결론">결론<a href="https://footgrammer.github.io/blog/wanna-exercise-board/#%EA%B2%B0%EB%A1%A0" class="hash-link" aria-label="Direct link to 결론" title="Direct link to 결론">​</a></h3>
+<ul>
+<li>vue에서 다른 값이 변하면 자동으로 바뀌는 computed 하고 dart의 getter 가 비슷해서 dart의 getter를 활용해서 값이 변경됐을 때 자동으로 변경되는 변수를 만들 수 있음</li>
+</ul>]]></content:encoded>
+            <category>journal</category>
+            <category>dart</category>
+        </item>
         <item>
             <title><![CDATA[Flutter IOS 시뮬레이터 빌드 에러]]></title>
             <link>https://footgrammer.github.io/blog/building-simulator-error/</link>
@@ -2286,105 +2346,6 @@ needle이 존재하지 않으면 -1을 반환합니다.</p>
 <li>라이브러리</li>
 </ul>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="️-참고-자료">✏️ 참고 자료<a href="https://footgrammer.github.io/blog/library/#%EF%B8%8F-%EC%B0%B8%EA%B3%A0-%EC%9E%90%EB%A3%8C" class="hash-link" aria-label="Direct link to ✏️ 참고 자료" title="Direct link to ✏️ 참고 자료">​</a></h2>
-<ul>
-<li>Flutter 공식 문서: <a href="https://docs.flutter.dev/" target="_blank" rel="noopener noreferrer">https://docs.flutter.dev</a></li>
-</ul>]]></content:encoded>
-            <category>journal</category>
-            <category>dart</category>
-        </item>
-        <item>
-            <title><![CDATA[에러 헨들링]]></title>
-            <link>https://footgrammer.github.io/blog/error-handling/</link>
-            <guid>https://footgrammer.github.io/blog/error-handling/</guid>
-            <pubDate>Fri, 14 Mar 2025 20:00:00 GMT</pubDate>
-            <description><![CDATA[오늘의 코딩]]></description>
-            <content:encoded><![CDATA[<h1>📚 오늘의 학습 내용</h1>
-<details class="details_lb9f alert alert--info details_b_Ee" data-collapsed="true"><summary>오늘의 코딩</summary><div><div class="collapsibleContent_i85q"><div markdown="1"><h3 class="anchor anchorWithStickyNavbar_LWe7" id="정렬된-배열에서-중복-제거">정렬된 배열에서 중복 제거<a href="https://footgrammer.github.io/blog/error-handling/#%EC%A0%95%EB%A0%AC%EB%90%9C-%EB%B0%B0%EC%97%B4%EC%97%90%EC%84%9C-%EC%A4%91%EB%B3%B5-%EC%A0%9C%EA%B1%B0" class="hash-link" aria-label="Direct link to 정렬된 배열에서 중복 제거" title="Direct link to 정렬된 배열에서 중복 제거">​</a></h3><div class="language-dart codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-dart codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">class Solution {</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  int removeDuplicates(List&lt;int&gt; nums) {</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    if(nums.isEmpty){return 0;}</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    int k = 1;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    for(int i = 1; i &lt; nums.length ; i++){</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        if(nums[i] != nums[k-1]){</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">            nums[k] = nums[i];</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">            k++;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        }</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    }</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    return k;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  }</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">}</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="문제점">문제점<a href="https://footgrammer.github.io/blog/error-handling/#%EB%AC%B8%EC%A0%9C%EC%A0%90" class="hash-link" aria-label="Direct link to 문제점" title="Direct link to 문제점">​</a></h3><ul>
-<li>숫자 배열에서 조건에 숫자가 뒤로 갈수록 감소하지 않는다는 것을 파악하지 못함</li>
-<li>중복되는 것을 제거해서 ‘_’로 바꿔야 한다는 것을 잘못 이해해서 헛고생을 조금 했다. 매번 문제를 잘 이해하지 못하는 부분이 있는 것 같다.</li>
-</ul></div></div></div></details>
-<br>
-<ul>
-<li>예외와 오류의 차이<!-- -->
-<ul>
-<li>예외는 프로그래밍 로직 문제, 오류는 주로 시스템 문제(메모리 부족)</li>
-</ul>
-</li>
-</ul>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️-주요-학습-내용">✍️ 주요 학습 내용<a href="https://footgrammer.github.io/blog/error-handling/#%EF%B8%8F-%EC%A3%BC%EC%9A%94-%ED%95%99%EC%8A%B5-%EB%82%B4%EC%9A%A9" class="hash-link" aria-label="Direct link to ✍️ 주요 학습 내용" title="Direct link to ✍️ 주요 학습 내용">​</a></h2>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="배운-내용">배운 내용<a href="https://footgrammer.github.io/blog/error-handling/#%EB%B0%B0%EC%9A%B4-%EB%82%B4%EC%9A%A9" class="hash-link" aria-label="Direct link to 배운 내용" title="Direct link to 배운 내용">​</a></h3>
-<ul>
-<li>예외 클래스</li>
-<li>오류 클래스</li>
-<li>예외와 오류의 차이</li>
-<li>예외처리</li>
-</ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="새로-알게된-개념">새로 알게된 개념<a href="https://footgrammer.github.io/blog/error-handling/#%EC%83%88%EB%A1%9C-%EC%95%8C%EA%B2%8C%EB%90%9C-%EA%B0%9C%EB%85%90" class="hash-link" aria-label="Direct link to 새로 알게된 개념" title="Direct link to 새로 알게된 개념">​</a></h3>
-<details class="details_lb9f alert alert--info details_b_Ee" data-collapsed="true"><summary>예외</summary><div><div class="collapsibleContent_i85q"><div markdown="1"><p><code>FormatException</code></p><ul>
-<li>다른 형태의 데이터가 들어갔을 때 예외 발생</li>
-</ul><p><code>IOException</code></p><ul>
-<li>입출력 관련 오류</li>
-</ul><p><code>OSError</code></p><ul>
-<li>운영체제 관련 에러</li>
-</ul><p><code>TimoutException</code></p><ul>
-<li>비동기 처리시 시간이 오버할 때 나오는 에러</li>
-</ul><p><code>throw</code> → 의도적으로 예외를 던지는 것.</p><hr><h3 class="anchor anchorWithStickyNavbar_LWe7" id="예외에-사용하는-키워드">예외에 사용하는 키워드<a href="https://footgrammer.github.io/blog/error-handling/#%EC%98%88%EC%99%B8%EC%97%90-%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94-%ED%82%A4%EC%9B%8C%EB%93%9C" class="hash-link" aria-label="Direct link to 예외에 사용하는 키워드" title="Direct link to 예외에 사용하는 키워드">​</a></h3><p><code>try</code> 의 코드 블록 중에 예외가 발생하면 <code>try</code> 의 코드 블록에 있는 뒷 코드들은 실행되지 않음 → <code>catch</code> 문으로 넘어감</p><p><code>catch (e)</code></p><p>e → 예외객체가 매개변수로 들어옴</p><p><code>on</code></p><ul>
-<li>단독으로 쓸 수 없음</li>
-<li>특정 타입의 예외를 다룸</li>
-</ul><div class="language-dart codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-dart codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">try{</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">}on FormatException catch(e){}</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div><p><code>finally</code></p><ul>
-<li>예외 발생 여부에 상관없이 실행할 코드를 넣는 부분</li>
-</ul><div class="language-dart codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-dart codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">try{</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">}catch(e){</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">}finally{</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">	print('예외 처리 끝!')</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">}</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div></div></div></div></details>
-<details class="details_lb9f alert alert--info details_b_Ee" data-collapsed="true"><summary>오류(Error)</summary><div><div class="collapsibleContent_i85q"><div markdown="1"><ul>
-<li>오류를 발생하면 프로그램이 종료됨</li>
-</ul><p><code>AssertionError</code></p><ul>
-<li><code>assert(조건문)</code> 가 <code>false</code> 면 오류 발생</li>
-</ul><p><code>RangeError</code></p><ul>
-<li>리스트 길이보다 더 큰 인덱스를 사용할 때<!-- -->
-<ul>
-<li><code>RangeError</code> 를 상속받은 <code>IndexError</code> 를 발생</li>
-</ul>
-</li>
-</ul><p><code>OutOfMemoryError</code></p><ul>
-<li>메모리 부족</li>
-</ul><p><code>StackOverflowError</code></p><ul>
-<li>메모리 영역 중 하나인 스택 영역이 가능한 범위를 넘어가는 현상</li>
-<li>스택은 지역 변수나 매개변수를 담는 공간</li>
-</ul><p><code>StateError</code></p><ul>
-<li>객체가 현재 상태로는 특정 동작이 불가능할 때</li>
-<li>ex) <code>null.first()</code></li>
-</ul><p><code>UnimplementedError</code></p><ul>
-<li>정의되지 않은 메서드나 기능을 호출했을 때</li>
-</ul><p><code>UnsupportedError</code></p><ul>
-<li>호출은 하는데 동작은 하지 않음</li>
-</ul></div></div></div></details>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="실습한-내용">실습한 내용<a href="https://footgrammer.github.io/blog/error-handling/#%EC%8B%A4%EC%8A%B5%ED%95%9C-%EB%82%B4%EC%9A%A9" class="hash-link" aria-label="Direct link to 실습한 내용" title="Direct link to 실습한 내용">​</a></h3>
-<ul>
-<li>없음</li>
-</ul>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-발생한-문제에러">🚨 발생한 문제/에러<a href="https://footgrammer.github.io/blog/error-handling/#-%EB%B0%9C%EC%83%9D%ED%95%9C-%EB%AC%B8%EC%A0%9C%EC%97%90%EB%9F%AC" class="hash-link" aria-label="Direct link to 🚨 발생한 문제/에러" title="Direct link to 🚨 발생한 문제/에러">​</a></h2>
-<ul>
-<li>없음</li>
-</ul>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-코드-스니펫">📝 코드 스니펫<a href="https://footgrammer.github.io/blog/error-handling/#-%EC%BD%94%EB%93%9C-%EC%8A%A4%EB%8B%88%ED%8E%AB" class="hash-link" aria-label="Direct link to 📝 코드 스니펫" title="Direct link to 📝 코드 스니펫">​</a></h2>
-<div class="language-dart codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-dart codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">// 오늘 배운 주요 코드</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">try{</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">}catch(e){</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">}finally{</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">}</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-내일-학습할-내용">📚 내일 학습할 내용<a href="https://footgrammer.github.io/blog/error-handling/#-%EB%82%B4%EC%9D%BC-%ED%95%99%EC%8A%B5%ED%95%A0-%EB%82%B4%EC%9A%A9" class="hash-link" aria-label="Direct link to 📚 내일 학습할 내용" title="Direct link to 📚 내일 학습할 내용">​</a></h2>
-<ul>
-<li>종합반 강의 복습</li>
-</ul>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-오늘의-회고">💭 오늘의 회고<a href="https://footgrammer.github.io/blog/error-handling/#-%EC%98%A4%EB%8A%98%EC%9D%98-%ED%9A%8C%EA%B3%A0" class="hash-link" aria-label="Direct link to 💭 오늘의 회고" title="Direct link to 💭 오늘의 회고">​</a></h2>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="잘한-점-">잘한 점 👍<a href="https://footgrammer.github.io/blog/error-handling/#%EC%9E%98%ED%95%9C-%EC%A0%90-" class="hash-link" aria-label="Direct link to 잘한 점 👍" title="Direct link to 잘한 점 👍">​</a></h3>
-<ul>
-<li>목표를 끝까지 지키려고 한 점</li>
-</ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="개선할-점-">개선할 점 🔨<a href="https://footgrammer.github.io/blog/error-handling/#%EA%B0%9C%EC%84%A0%ED%95%A0-%EC%A0%90-" class="hash-link" aria-label="Direct link to 개선할 점 🔨" title="Direct link to 개선할 점 🔨">​</a></h3>
-<ul>
-<li>완벽한 상태에서 과제를 하려고 하기보다 미리 시작하고 과제를 먼저 파악하는 게 중요한 것 같음</li>
-</ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="배운-점-">배운 점 💡<a href="https://footgrammer.github.io/blog/error-handling/#%EB%B0%B0%EC%9A%B4-%EC%A0%90-" class="hash-link" aria-label="Direct link to 배운 점 💡" title="Direct link to 배운 점 💡">​</a></h3>
-<ul>
-<li>예외를 예측하는 게 쉽지 않은 것 같음</li>
-</ul>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️-참고-자료">✏️ 참고 자료<a href="https://footgrammer.github.io/blog/error-handling/#%EF%B8%8F-%EC%B0%B8%EA%B3%A0-%EC%9E%90%EB%A3%8C" class="hash-link" aria-label="Direct link to ✏️ 참고 자료" title="Direct link to ✏️ 참고 자료">​</a></h2>
 <ul>
 <li>Flutter 공식 문서: <a href="https://docs.flutter.dev/" target="_blank" rel="noopener noreferrer">https://docs.flutter.dev</a></li>
 </ul>]]></content:encoded>
