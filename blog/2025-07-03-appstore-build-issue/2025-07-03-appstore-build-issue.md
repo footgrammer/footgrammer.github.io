@@ -36,7 +36,7 @@ xcode에서 ios 폴더를 연 후 product / archive 를 통해서 apple connect�
 - `flutter build ipa` 터미널에서 실행 → 배포하기 위한 파일들을 만들어 줌
 - 실행 후에 이런 안내 메시지를 만들어 줌
 
-  ![Screenshot 2025-07-03 at 8.07.14 PM.png](2025-07-03-flutter-appstore-build-issue%20225d922df43080c2bccdd156eaccd933/Screenshot_2025-07-03_at_8.07.14_PM.png)
+  ![error_log.png](error_log.png)
 
 - transporter 앱을 다운받음
 - transporter 앱에 **“`build/ios/ipa/투두모두.ipa`” 를 드래그 앤 드랍 해버리면 빌드 끝!**
